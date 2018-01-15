@@ -56,7 +56,7 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
-  
+
   # database cleaner
   config.before(:suite) do
     DatabaseCleaner.clean_with(:truncation)
@@ -68,6 +68,9 @@ RSpec.configure do |config|
       example.run
     end
   end
+
+  # Adds factorygirl simple syntax
+  config.include FactoryGirl::Syntax::Methods
 end
 
 Shoulda::Matchers.configure do |config|
