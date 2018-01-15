@@ -1,3 +1,8 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  scope :api do
+    resources :heros, module: :v1 ,only: [:index, :show] do
+      resources :abilities, module: :v1,  only: [:index]
+    end
+   resources :abilities, module: :v1,  only: [:index, :show]
+  end
 end
